@@ -112,9 +112,10 @@ function turtle.goTo(x, y, z)
 
     -- Z AXIS
 
-    if turtle.zPos ~= z then
+    local dir = turtle.zPos - z
 
-        local dir = turtle.zPos - z
+    if turtle.zPos ~= z then
+        
 
         if dir < 0 then dir = 1 elseif dir > 0 then dir = -1 end
         
