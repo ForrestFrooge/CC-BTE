@@ -112,33 +112,40 @@ function turtle.goTo(x, y, z)
 
     -- Z AXIS
 
-    local dir = turtle.zPos - z
+    if turtle.zPos ~= z then
 
-    if dir < 0 then dir = 1 elseif dir > 0 then dir = -1 end
-    
-    
-    while turtle.zDir ~= dir do
-        turtle.turnLeft()
-    end
+        local dir = turtle.zPos - z
 
-    while turtle.zPos ~= z do
-        turtle.forward()
+        if dir < 0 then dir = 1 elseif dir > 0 then dir = -1 end
+        
+        
+        while turtle.zDir ~= dir do
+            turtle.turnLeft()
+        end
+
+        while turtle.zPos ~= z do
+            turtle.forward()
+        end
+
     end
 
     -- X AXIS
 
-    dir = turtle.xPos - x
+    if turtle.xPos ~= x then
 
-    if dir < 0 then dir = 1 elseif dir > 0 then dir = -1 end
-    
-    while turtle.xDir ~= dir do
-        turtle.turnLeft()
+        dir = turtle.xPos - x
+
+        if dir < 0 then dir = 1 elseif dir > 0 then dir = -1 end
+        
+        while turtle.xDir ~= dir do
+            turtle.turnLeft()
+        end
+
+        while turtle.xPos ~= x do
+            turtle.forward()
+        end
+
     end
-
-    while turtle.xPos ~= x do
-        turtle.forward()
-    end
-
 
 
 end
